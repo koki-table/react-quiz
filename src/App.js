@@ -60,8 +60,10 @@ class App extends Component {
 
     if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
+    // } else if {
+    //   setTimeout(() => this.setResults(this.getResults()), 300);
     } else {
-      setTimeout(() => this.setResults(this.getResults()), 300);
+      setTimeout(() => this.setMistake(this.getMistake()), 300);
     }
   }
 
@@ -88,6 +90,15 @@ class App extends Component {
     });
   }
 
+  getMistake() {
+    const answersCount = this.state.answersCount;
+    const answersCountKeys = Object.keys(answersCount);
+    const answersCountValues = answersCountKeys.map(key => answersCount[key]);
+    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+
+    return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+  }
+
   getResults() {
     const answersCount = this.state.answersCount;
     const answersCountKeys = Object.keys(answersCount);
@@ -95,6 +106,14 @@ class App extends Component {
     const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
     return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+  }
+
+  setMistake(mistake) {
+    if (mistake.length === 1) {
+      this.setState({ mistake: mistake[0] });
+    } else {
+      this.setState({ result: 'Undetermined' });
+    }
   }
 
   setResults(result) {
@@ -138,9 +157,9 @@ class App extends Component {
     // }
     console.log(mistakeCountKeys)
     
-    if (mistakeCountKeys === ['Microsoft']) {
+    if (this.state.mistake) {
       return this.renderMistake();
-    }else if (this.state.result) {
+    } else if (this.state.result) {
       return this.renderResult();
     } else {
       return this.renderQuiz();
