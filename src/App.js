@@ -58,12 +58,12 @@ class App extends Component {
   handleAnswerSelected(event) {
     this.setUserAnswer(event.currentTarget.value);
 
-    if (this.state.questionId < quizQuestions.length) {
+    if (this.state.counter === 2) {
+    setTimeout(() => this.setMistake(this.getMistake()), 300);
+    } else if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
-    // } else if {
-    //   setTimeout(() => this.setResults(this.getResults()), 300);
     } else {
-      setTimeout(() => this.setMistake(this.getMistake()), 300);
+      setTimeout(() => this.setResults(this.getResults()), 300);
     }
   }
 
@@ -112,7 +112,7 @@ class App extends Component {
     if (mistake.length === 1) {
       this.setState({ mistake: mistake[0] });
     } else {
-      this.setState({ result: 'Undetermined' });
+      this.setState({ mistake: 'Mistake' });
     }
   }
 
