@@ -12,7 +12,7 @@ import PropTypes from "prop-types";
 // export default Mistake;
 
 function Mistake(props) {
-  return <h2 className="mistake">不正解！！</h2>;
+  return <h2 className="mistake">不正解daaa！！</h2>;
 }
 
 Mistake.propTypes = {
