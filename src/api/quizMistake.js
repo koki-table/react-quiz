@@ -1,6 +1,6 @@
 var quizMistake = [
   {
-      question: "What franchise would you rather play a game from?",
+      question: "miss01",
       answers: [
           {
               type: "Microsoft",
@@ -17,7 +17,7 @@ var quizMistake = [
       ]
   },
   {
-      question: "Which console would you prefer to play with friends?",
+      question: "miss02",
       answers: [
           {
               type: "Microsoft",
@@ -34,7 +34,7 @@ var quizMistake = [
       ]
   },
   {
-      question: "Which of these racing franchises would you prefer to play a game from?",
+      question: "miss03",
       answers: [
           {
               type: "Microsoft",
@@ -51,7 +51,7 @@ var quizMistake = [
       ]
   },
   {
-      question: "Which of these games do you think is best?",
+      question: "miss04",
       answers: [
           {
               type: "Microsoft",
@@ -68,7 +68,7 @@ var quizMistake = [
       ]
   },
   {
-      question: "What console would you prefer to own?",
+      question: "miss05",
       answers: [
           {
               type: "Microsoft",

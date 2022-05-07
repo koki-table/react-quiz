@@ -1,24 +1,105 @@
-.App-logo {
+/* .App-logo {
   animation: spin infinite 20s linear;
   height: 80px;
-}
+} */
 
 .App-header {
   background-color: #222;
-  padding: 20px;
+  padding: 10px;
   color: white;
   text-align: center;
+  /* display: flex; */
 }
 
 .App-intro {
   font-size: large;
 }
 
-@keyframes spin {
+/* @keyframes spin {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(360deg);
+  }
+} */
+
+/* .App-header h2 {
+  width: 74%;
+  text-align: left;
+} */
+
+
+/* logo */
+.bound-container {
+  position: relative;
+  width: 26%;
+  min-height: 20px;
+  position: absolute;
+  top: 32px;
+}
+
+/*ボール*/
+.ball {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #4499da;
+  /* opacity: 0.6; */
+  animation: bound-anim 1s infinite;
+  -webkit-animation: bound-anim 1s infinite;
+}
+
+@keyframes bound-anim {
+  0%,
+  100% {
+    top: 0;
+    transform: scale(1);
+  }
+  30% {
+    top: -60%;
+    transform: scale(0.96, 1.04);
+  }
+  60% {
+    transform: scale(1);
+  }
+  90% {
+    top: 0;
+    transform: scale(1.15, 0.9);
+  }
+}
+
+/*影*/
+.shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: -95px; /*対象のheightと微調節*/
+  margin: auto;
+  width: 60px;
+  height: 10px;
+  border-radius: 50%;
+  background: #000;
+  filter: blur(6px);
+  opacity: 0.9;
+  animation: shadow-anim 1s infinite;
+}
+
+@keyframes shadow-anim {
+  0%,
+  100% {
+    transform: scale(1);
+    filter: blur(4px);
+  }
+  30% {
+    transform: scale(1.6, 1);
+    filter: blur(8px);
   }
 }

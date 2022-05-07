@@ -18,6 +18,7 @@ function Result(props) {
       </div>
     </CSSTransitionGroup>
   );
+  
 }
 
 Result.propTypes = {

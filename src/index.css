@@ -1,16 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 * {
@@ -20,7 +17,7 @@ code {
 body {
   margin: 0;
   padding: 0;
-  background: #eee;
+  background: #fff;
   font-family: sans-serif;
 }
 
@@ -29,7 +26,6 @@ body {
   max-width: 800px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 3px;
 }
 
 @media (min-width: 769px) {
@@ -99,20 +95,24 @@ body {
   left: 38px;
   width: 28px;
   height: 28px;
-  content: '';
+  content: "";
   display: inline-block;
   vertical-align: middle;
   background: #fff;
   border: 1px solid #bbb;
   border-radius: 50%;
   transition: all 0.3s;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
 }
 
 .radioCustomButton:checked ~ .radioCustomLabel:before {
-  content: '';
-  background: #8bc53f url(./svg/icon-check.svg) no-repeat;
+  content: "";
+  background: #4499da url(./svg/icon-check.svg) no-repeat;
   background-size: 27px;
-  border-color: #8bc53f;
+  border-color: #4499da;
 }
 
 /* Animation */
@@ -145,4 +145,79 @@ body {
 .fade-appear.fade-appear-active {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+/* Mistake Component */
+.container.mistake {
+  background-color: #222;
+  color: #fff;
+  height: 100vh;
+}
+.mistake {
+  padding: 1.5rem 2.5rem;
+}
+
+.mistake p {
+  font-size: 42px;
+  line-height: 1.15;
+  letter-spacing: -0.05em;
+  font-weight: 700;
+  text-align: center;
+  margin: 0 0 25px;
+}
+
+.mistake .animateion--neon {
+  font-family: Yellowtail, cursive;
+  -webkit-animation: utils_flicker__w6vFc 1.5s infinite alternate;
+  animation: utils_flicker__w6vFc 1.5s infinite alternate;
+  color: #fff;
+  font-weight: 400;
+  line-height: 1;
+  font-family: Yellowtail, cursive;
+  letter-spacing: 0.05em;
+}
+
+@media screen and (prefers-reduced-motion) {
+  .animateion--neon {
+    -webkit-animation: none;
+    animation: none;
+    color: #fff;
+    text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 11px #fff, 0 0 15px #4499da, 0 0 10px #4499da, 0 0 15px #4499da, 0 0 5px #4499da, 0 0 7px #4499da;
+  }
+}
+
+@-webkit-keyframes utils_flicker__w6vFc {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 11px #fff, 0 0 15px #4499da, 0 0 10px #4499da, 0 0 15px #4499da, 0 0 5px #4499da, 0 0 7px #4499da;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+@keyframes utils_flicker__w6vFc {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  to {
+    text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 11px #fff, 0 0 15px #4499da, 0 0 10px #4499da, 0 0 15px #4499da, 0 0 5px #4499da, 0 0 7px #4499da;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
 }
