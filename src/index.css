@@ -1,9 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Yellowtail&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: currentColor;
+  text-decoration: none;
+}
+
+img,
+svg {
+  vertical-align: middle;
+}
+
+ol,
+ul {
+  list-style: none;
 }
 
 code {
@@ -33,6 +50,10 @@ body {
     margin: 2.5rem auto;
   }
 }
+
+/* .text--nowrap {
+  white-space: nowrap;
+} */
 
 /* Result Component */
 .result {
@@ -149,21 +170,33 @@ body {
 
 /* Mistake Component */
 .container.mistake {
-  background-color: #222;
+  background-color: #000;
   color: #fff;
   height: 100vh;
 }
 .mistake {
-  padding: 1.5rem 2.5rem;
+  padding: 1.2rem 1.5rem;
 }
 
-.mistake p {
-  font-size: 42px;
+.mistake__heading p {
+  font-size: 47px;
   line-height: 1.15;
   letter-spacing: -0.05em;
   font-weight: 700;
   text-align: center;
   margin: 0 0 25px;
+}
+
+.mistake__body {
+  font-size: 18px;
+}
+
+.mistake__body .text{
+  color: #8a8f98;
+}
+
+.text-logo--racket {
+  font-size: 30px;
 }
 
 .mistake .animateion--neon {
@@ -204,20 +237,52 @@ body {
   }
 }
 
-@keyframes utils_flicker__w6vFc {
-  0%,
-  18%,
-  22%,
-  25%,
-  53%,
-  57%,
-  to {
-    text-shadow: 0 0 2px #fff, 0 0 6px #fff, 0 0 11px #fff, 0 0 15px #4499da, 0 0 10px #4499da, 0 0 15px #4499da, 0 0 5px #4499da, 0 0 7px #4499da;
-  }
+.appeal {
+  margin: 60px 15px 0 15px;
+  text-align: center;
+}
 
-  20%,
-  24%,
-  55% {
-    text-shadow: none;
-  }
+.appeal__link {
+  border: 0.8vw solid #1da1f1;
+  border-radius: 3.2vw;
+  background-color: #1da1f1;
+}
+
+.appeal__link--return {
+  margin: 25px 0 0;
+  padding: 10px 0 10px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  position: relative;
+  -webkit-animation: utils_flicker__w6vFc 1.5s infinite alternate;
+  animation: utils_flicker__w6vFc 1.5s infinite alternate;
+}
+
+.appeal__link--return::after {
+  position: absolute;
+  top: 16px;
+  left: 13vw;
+  width: 8px;
+  height: 8px;
+  content: '';
+  border: 2px solid;
+  border-color: #fff #fff transparent transparent;
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
+}
+
+.appeal__link img {
+  width: 100%;
+  height: auto;
+}
+
+.appeal__text {
+  display: inline-block;
+  margin: 6px -30px 0 -26px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4499da;
+  text-align: left;
+  font-weight: 800;
+  font-size: 12px;
 }
