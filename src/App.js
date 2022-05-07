@@ -3,7 +3,7 @@ import quizQuestions from './api/quizQuestions';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Mistake from './components/Mistake';
-import logo from './svg/logo.svg';
+// import logo from './svg/logo.svg';
 import './App.css';
 // eslint-disable-next-line no-unused-vars
 import { element } from 'prop-types';
