@@ -66,8 +66,13 @@ class App extends Component {
 
     console.log(event.currentTarget.value);
 
-    if (event.currentTarget.value === 'mistake') {
+    // 選択したvalueによって条件分岐
+    if (event.currentTarget.value === 'mistake1') {
     setTimeout(() => this.setMistake(), 300);
+    } else if (event.currentTarget.value === 'mistake2') {
+      setTimeout(() => this.setMistake(), 300);
+    } else if (event.currentTarget.value === 'mistake3') {
+      setTimeout(() => this.setMistake(), 300);
     } else if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
@@ -143,9 +148,10 @@ class App extends Component {
     // 助長感は否めないけど、まずはそれでやってみる
     if (this.state.questionId === 1) {
       this.setState({ 
-        mistake: [],
-        mistakeText: quizMistakeText[1],
-        mistakeCount: quizMistakeCount[1]
+        result: [],
+        // mistake: [],
+        // mistakeText: quizMistakeText[1],
+        // mistakeCount: quizMistakeCount[1]
       });
     } else if (this.state.questionId === 2) {
       this.setState({ 
