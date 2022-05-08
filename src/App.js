@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import quizQuestions from './api/quizQuestions';
+import quizMistake from './api/quizMistake';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Mistake from './components/Mistake';
@@ -30,9 +31,10 @@ class App extends Component {
     const shuffledAnswerOptions = quizQuestions.map(question =>
       this.shuffleArray(question.answers)
     );
+
     this.setState({
       question: quizQuestions[0].question,
-      answerOptions: shuffledAnswerOptions[0]
+      answerOptions: shuffledAnswerOptions[0],
     });
   }
 
@@ -64,15 +66,14 @@ class App extends Component {
 
     console.log(event.currentTarget.value);
 
-    if (event.currentTarget.value === 'Microsoft') {
-    setTimeout(() => this.setMistake(this.getMistake()), 300);
+    if (event.currentTarget.value === 'mistake') {
+    setTimeout(() => this.setMistake(), 300);
     } else if (this.state.questionId < quizQuestions.length) {
       setTimeout(() => this.setNextQuestion(), 300);
     } else {
       setTimeout(() => this.setResults(this.getResults()), 300);
     }
   }
-
 
   setUserAnswer(answer) {
     this.setState((state, props) => ({
@@ -97,14 +98,14 @@ class App extends Component {
     });
   }
 
-  getMistake() {
-    const answersCount = this.state.answersCount;
-    const answersCountKeys = Object.keys(answersCount);
-    const answersCountValues = answersCountKeys.map(key => answersCount[key]);
-    const maxAnswerCount = Math.max.apply(null, answersCountValues);
+  // getMistake() {
+  //   const answersCount = this.state.answersCount;
+  //   const answersCountKeys = Object.keys(answersCount);
+  //   const answersCountValues = answersCountKeys.map(key => answersCount[key]);
+  //   const maxAnswerCount = Math.max.apply(null, answersCountValues);
 
-    return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
-  }
+  //   return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
+  // }
 
   getResults() {
     // 参考になった箇所
@@ -127,10 +128,79 @@ class App extends Component {
   }
 
   setMistake(mistake) {
-    if (mistake.length === 1) {
-      this.setState({ mistake: mistake[0] });
-    } else {
-      this.setState({ mistake: 'Mistake' });
+    // quizQuestionsのオブジェクトの要素を取得
+    const quizMistakeText = quizMistake.map(mistake =>
+      mistake.text
+    );
+    const quizMistakeCount = quizMistake.map(mistake =>
+      mistake.count
+    );
+
+
+    console.log(quizMistakeText[0])
+
+    // 下記の条件分岐でidの数によって、quizMistakeOptionsで渡す値を変更する。
+    // 助長感は否めないけど、まずはそれでやってみる
+    if (this.state.questionId === 1) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[1],
+        mistakeCount: quizMistakeCount[1]
+      });
+    } else if (this.state.questionId === 2) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[2],
+        mistakeCount: quizMistakeCount[2]
+      });
+    } else if (this.state.questionId === 3) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[3],
+        mistakeCount: quizMistakeCount[3]
+      });
+    } else if (this.state.questionId === 4) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[4],
+        mistakeCount: quizMistakeCount[4]
+      });
+    } else if (this.state.questionId === 5) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[5],
+        mistakeCount: quizMistakeCount[5]
+      });
+    } else if (this.state.questionId === 6) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[6],
+        mistakeCount: quizMistakeCount[6]
+      });
+    } else if (this.state.questionId === 7) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[7],
+        mistakeCount: quizMistakeCount[7]
+      });
+    } else if (this.state.questionId === 8) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[8],
+        mistakeCount: quizMistakeCount[8]
+      });
+    } else if (this.state.questionId === 9) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[9],
+        mistakeCount: quizMistakeCount[9]
+      });
+    } else if (this.state.questionId === 10) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[10],
+        mistakeCount: quizMistakeCount[10]
+      });
     }
   }
 
@@ -165,7 +235,7 @@ class App extends Component {
   }
 
   renderMistake() {
-    return <Mistake quizMistake={this.state.mistake} />;
+    return <Mistake quizMistake={this.state.mistake} quizMistakeCount={this.state.mistakeCount} quizMistakeText={this.state.mistakeText}/>;
   }
 
   judgment() {
@@ -189,9 +259,9 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <div class="bound-container">
-            <span class="ball"></span>
-            <span class="shadow"></span>
+          <div className="bound-container">
+            <span className="ball"></span>
+            <span className="shadow"></span>
           </div>
           <h2>Lobbing Quiz</h2>
         </div>
