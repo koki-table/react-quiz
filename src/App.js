@@ -262,8 +262,8 @@ class App extends Component {
 
   timer() {
     //DOM取得
-    // const text = document.querySelector('.text');
-    const text = document.getElementById('root')
+    const text = document.querySelector('.text');
+    // const text = document.getElementById('root')
 
     //JSXに埋め込む値
     const h2Text = "羊は何匹？";
