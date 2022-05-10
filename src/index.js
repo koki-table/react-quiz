@@ -6,10 +6,10 @@ import * as serviceWorker from './serviceWorker';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
+// import Timer from './Timer';
 
-
-ReactDOM.render(<App />, document.getElementById('root'),);
-
+ReactDOM.render(<App />, document.getElementById('root'));
+// ReactDOM.render(<Timer />, document.querySelector('.text'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
