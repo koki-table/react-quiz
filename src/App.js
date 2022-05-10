@@ -8,6 +8,7 @@ import Mistake from './components/Mistake';
 import './App.css';
 // eslint-disable-next-line no-unused-vars
 import { element } from 'prop-types';
+import ReactDOM from 'react-dom'
 
 class App extends Component {
   constructor(props) {
@@ -260,22 +261,102 @@ class App extends Component {
     }
   };
 
-  timer() {
+  timerCount() {
     //DOM取得
     const text = document.querySelector('.text');
     // const text = document.getElementById('root')
-
+  
     //JSXに埋め込む値
     const h2Text = "羊は何匹？";
-
+  
     //カウントの初期値
     let counter = 30;
-
+  
     let hitsuji =	() => {
+
+      // quizQuestionsのオブジェクトの要素を取得
+    // const quizMistakeText = quizMistake.map(mistake =>
+    //   mistake.text
+    // );
+    // const quizMistakeCount = quizMistake.map(mistake =>
+    //   mistake.count
+    // );
       
       //カウントアップ
-      if(counter>0) counter--;
+      if(counter>0) { 
+        counter--
+      } else if (counter === 0) {
+        this.setState({ 
+          mistake: [],
+          // mistakeText: quizMistakeText[2],
+          // mistakeCount: quizMistakeCount[2]
+        });
+      };
 
+      // 下記の条件分岐でidの数によって、quizMistakeOptionsで渡す値を変更する。
+    // 助長感は否めないけど、まずはそれでやってみる
+    // if (this.state.questionId === 1) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[1],
+    //     mistakeCount: quizMistakeCount[1]
+    //   });
+    // } else if (this.state.questionId === 2) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[2],
+    //     mistakeCount: quizMistakeCount[2]
+    //   });
+    // } else if (this.state.questionId === 3) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[3],
+    //     mistakeCount: quizMistakeCount[3]
+    //   });
+    // } else if (this.state.questionId === 4) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[4],
+    //     mistakeCount: quizMistakeCount[4]
+    //   });
+    // } else if (this.state.questionId === 5) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[5],
+    //     mistakeCount: quizMistakeCount[5]
+    //   });
+    // } else if (this.state.questionId === 6) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[6],
+    //     mistakeCount: quizMistakeCount[6]
+    //   });
+    // } else if (this.state.questionId === 7) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[7],
+    //     mistakeCount: quizMistakeCount[7]
+    //   });
+    // } else if (this.state.questionId === 8) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[8],
+    //     mistakeCount: quizMistakeCount[8]
+    //   });
+    // } else if (this.state.questionId === 9) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[9],
+    //     mistakeCount: quizMistakeCount[9]
+    //   });
+    // } else if (this.state.questionId === 10) {
+    //   this.setState({ 
+    //     mistake: [],
+    //     mistakeText: quizMistakeText[10],
+    //     mistakeCount: quizMistakeCount[10]
+    //   });
+    // }
+  
       //JSXの中身
       const elm = (
       <section className="h2_elem">
@@ -285,14 +366,13 @@ class App extends Component {
       );
 
       //レンダリング
-      // eslint-disable-next-line no-undef
       ReactDOM.render(elm, text);
-      
     };
-
+  
     //タイマー処理
     setInterval(hitsuji, 1000);
   }
+
 
   render() {
     return (
@@ -306,7 +386,7 @@ class App extends Component {
           <h2>Lobbing Quiz</h2>
         </div>
         {this.judgment()}
-        {this.timer()}
+        {this.timerCount()}
       </div>
     );
   }
