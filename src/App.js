@@ -260,6 +260,40 @@ class App extends Component {
     }
   };
 
+  timer() {
+    //DOM取得
+    // const text = document.querySelector('.text');
+    const text = document.getElementById('root')
+
+    //JSXに埋め込む値
+    const h2Text = "羊は何匹？";
+
+    //カウントの初期値
+    let counter = 30;
+
+    let hitsuji =	() => {
+      
+      //カウントアップ
+      if(counter>0) counter--;
+
+      //JSXの中身
+      const elm = (
+      <section className="h2_elem">
+        <h2>{ h2Text }</h2>
+        <p>「羊が{ counter }匹…」</p>
+      </section>
+      );
+
+      //レンダリング
+      // eslint-disable-next-line no-undef
+      ReactDOM.render(elm, text);
+      
+    };
+
+    //タイマー処理
+    setInterval(hitsuji, 1000);
+  }
+
   render() {
     return (
       <div className="App">
@@ -272,6 +306,7 @@ class App extends Component {
           <h2>Lobbing Quiz</h2>
         </div>
         {this.judgment()}
+        {this.timer()}
       </div>
     );
   }
