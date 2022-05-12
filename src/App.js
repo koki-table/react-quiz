@@ -224,6 +224,7 @@ class App extends Component {
   renderQuiz() {
     const timer = this.timerCount
     return timer() (
+    // return (
       
       // Quizファイルで運んできたpropsをstateにしてApp.jsのconstructorで初期化して各メソッドで利用できるようにしている
       <Quiz
@@ -232,7 +233,7 @@ class App extends Component {
         questionId={this.state.questionId}
         question={this.state.question}
         questionTotal={quizQuestions.length}
-        // timerCount={this.state.timerCount}
+
         // inputのonchangeイベントで答えをクリックした時に下記でhandleAnswerSelectedを呼んでいる
         onAnswerSelected={this.handleAnswerSelected}
       />
