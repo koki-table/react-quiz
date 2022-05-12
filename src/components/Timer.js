@@ -1,37 +1,15 @@
-import React, { Component } from "react";
 
-function FormattedDate(props) {
-  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
-}
+// hooksの参考
+// import React, { useEffect, useState } from "react";
 
-class Clock extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: new Date() };
-  }
+// export default function Timer() {
+//   const [count, setCount] = useState(0);
+//   useEffect(() => {
+//     const interval = setInterval(() => {
+//       setCount((c) => c + 1);
+//     }, 1000);
+//     return () => clearInterval(interval);
+//   }, []);
 
-  componentDidMount() {
-    this.timerID = setInterval(() => this.tick(), 1000);
-  }
-
-  componentWillUnmount() {
-    clearInterval(this.timerID);
-  }
-
-  tick() {
-    this.setState({
-      date: new Date(),
-    });
-  }
-
-  render() {
-    return (
-      <div>
-        <h1>Hello, world!</h1>
-        <FormattedDate date={this.state.date} />
-      </div>
-    );
-  }
-}
-
-
+//   return <div>count = {count}</div>;
+// }

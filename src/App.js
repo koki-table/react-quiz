@@ -4,6 +4,7 @@ import quizMistake from './api/quizMistake';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Mistake from './components/Mistake';
+// eslint-disable-next-line no-unused-vars
 // import logo from './svg/logo.svg';
 import './App.css';
 // eslint-disable-next-line no-unused-vars
@@ -67,6 +68,7 @@ class App extends Component {
 
     console.log(event.currentTarget.value);
 
+    // mapで取得したvulueの値が被った場合に、上手く機能しなかったので、無理矢理別の名前にして取得
     // 選択したvalueによって条件分岐
     if (event.currentTarget.value === 'mistake1') {
     setTimeout(() => this.setMistake(), 300);
@@ -222,9 +224,9 @@ class App extends Component {
   }
 
   renderQuiz() {
-    const timer = this.timerCount
-    return timer() (
-    // return (
+    // const timer = this.timerCount
+    // return timer() (
+    return (
       
       // Quizファイルで運んできたpropsをstateにしてApp.jsのconstructorで初期化して各メソッドで利用できるようにしている
       <Quiz
