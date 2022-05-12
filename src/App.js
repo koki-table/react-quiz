@@ -222,7 +222,9 @@ class App extends Component {
   }
 
   renderQuiz() {
-    return (
+    const timer = this.timerCount
+    return timer() (
+      
       // Quizファイルで運んできたpropsをstateにしてApp.jsのconstructorで初期化して各メソッドで利用できるようにしている
       <Quiz
         answer={this.state.answer}
@@ -230,6 +232,7 @@ class App extends Component {
         questionId={this.state.questionId}
         question={this.state.question}
         questionTotal={quizQuestions.length}
+        // timerCount={this.state.timerCount}
         // inputのonchangeイベントで答えをクリックした時に下記でhandleAnswerSelectedを呼んでいる
         onAnswerSelected={this.handleAnswerSelected}
       />
@@ -249,6 +252,7 @@ class App extends Component {
     const mistakeCount = this.state.answersCount;
     const mistakeCountKeys = Object.keys(mistakeCount);
 
+
     console.log(mistakeCountKeys)
     
     // stateによって条件分岐している
@@ -263,9 +267,11 @@ class App extends Component {
 
   timerCount() {
     //DOM取得
-    const timerText = document.querySelector('.timer-text');
-    // const text = document.getElementById('root')
-  
+    // const timerText = document.querySelector('.timer-text');
+    const timerText = document.getElementById('root');
+
+    // const text = document.querySelector('.text');
+    
     //JSXに埋め込む値
     const h2Text = "制限時間";
   
@@ -290,6 +296,7 @@ class App extends Component {
           mistakeText: quizMistakeText[2],
           mistakeCount: quizMistakeCount[2]
         });
+        return;
       };
   
       //JSXの中身
@@ -322,7 +329,7 @@ class App extends Component {
           <h2>Lobbing Quiz</h2>
         </div>
         {this.judgment()}
-        {this.timerCount()}
+        {/* {this.timerCount()} */}
       </div>
     );
   }
