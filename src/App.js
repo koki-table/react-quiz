@@ -298,7 +298,7 @@ class App extends Component {
       if(counterTimer > 0) { 
 
         if (this.state.mistake) {
-          this.setState.timerCount = 44
+          // this.setState.timerCount = 44
           console.log("ddddd")
           clearTimeout(timerCountDown);
           console.log(timerCountDown)
@@ -335,8 +335,11 @@ class App extends Component {
       //JSXの中身
       const elm = (
       <section className="timer-container">
-        <p>{ text }</p>
-        <p>「{ counterTimer }秒」</p>
+        <p className='timer-text'>{ text }</p>
+        <div className="bound-animation">
+            <span className="ball"><span className='timer'>&ensp;{ counterTimer }</span></span>
+            <span className="shadow"></span>
+          </div>
       </section>
       );
 
@@ -356,10 +359,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          <div className="bound-container">
+          {/* <div className="bound-container">
             <span className="ball"></span>
             <span className="shadow"></span>
-          </div>
+          </div> */}
           <h2>Lobbing Quiz</h2>
           <div className='timer'></div>
         </div>

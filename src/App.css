@@ -31,12 +31,13 @@
 
 
 /* logo */
-.bound-container {
+.bound-animation {
   position: relative;
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 40px;
+  top: 103px;
+  right: 94px;
 }
 
 /*ボール*/
@@ -47,13 +48,23 @@
   top: 0;
   bottom: 0;
   margin: auto;
-  width: 25px;
-  height: 25px;
+  width: 39px;
+  height: 39px;
   border-radius: 50%;
   background: #4499da;
   /*opacity: 0.6;
   */animation: bound-anim 1s infinite;
   -webkit-animation: bound-anim 1s infinite;
+}
+
+.ball span {
+  position: absolute;
+  top: -2px;
+  right: 9px;
+  left: 0;
+  font-weight: 700;
+  font-size: 15px;
+  text-align: right;
 }
 
 @keyframes bound-anim {
@@ -85,14 +96,16 @@
   left: 0;
   right: 0;
   top: 0;
-  bottom: -45px; /*対象のheightと微調節*/
+  bottom: -63px;
   margin: auto;
-  width: 20px;
+  width: 30px;
   height: 10px;
   border-radius: 50%;
   background: #58535E;
+  -webkit-filter: blur(6px);
   filter: blur(6px);
   opacity: 0.9;
+  -webkit-animation: shadow-anim 1s infinite;
   animation: shadow-anim 1s infinite;
 }
 
@@ -115,3 +128,13 @@
   align-items: center;
 }
 
+.timer {
+  font-weight: 700;
+  font-size: 20px;
+  margin: 10px 0 10px -65px;
+}
+
+.timer-text {
+  font-size: 17px;
+  margin: 10px 0 10px;
+}
