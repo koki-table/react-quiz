@@ -51,8 +51,8 @@
   height: 25px;
   border-radius: 50%;
   background: #4499da;
-  /* opacity: 0.6; */
-  animation: bound-anim 1s infinite;
+  /*opacity: 0.6;
+  */animation: bound-anim 1s infinite;
   -webkit-animation: bound-anim 1s infinite;
 }
 
@@ -107,3 +107,11 @@
     filter: blur(8px);
   }
 }
+
+/* timer */
+.timer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

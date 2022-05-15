@@ -24,6 +24,7 @@ class App extends Component {
       answer: '',
       answersCount: {},
       result: '',
+      timerCount: 100,
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -38,6 +39,16 @@ class App extends Component {
       question: quizQuestions[0].question,
       answerOptions: shuffledAnswerOptions[0],
     });
+
+    // this.timerID = setInterval(
+    //   () => this.timerCount(),
+    // );
+
+    this.timerCount();
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerCount());
   }
 
   shuffleArray(array) {
@@ -96,6 +107,7 @@ class App extends Component {
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
+    clearTimeout(this.timerCount);
 
     this.setState({
       counter: counter,
@@ -104,16 +116,10 @@ class App extends Component {
       answerOptions: quizQuestions[counter].answers,
       answer: ''
     });
+
+    // タイマー処理のメソッド呼び出し
+    // this.timerCount();
   }
-
-  // getMistake() {
-  //   const answersCount = this.state.answersCount;
-  //   const answersCountKeys = Object.keys(answersCount);
-  //   const answersCountValues = answersCountKeys.map(key => answersCount[key]);
-  //   const maxAnswerCount = Math.max.apply(null, answersCountValues);
-
-  //   return answersCountKeys.filter(key => answersCount[key] === maxAnswerCount);
-  // }
 
   getResults() {
     // 参考になった箇所
@@ -143,6 +149,7 @@ class App extends Component {
     const quizMistakeCount = quizMistake.map(mistake =>
       mistake.count
     );
+
 
 
     console.log(quizMistakeText[0])
@@ -224,10 +231,7 @@ class App extends Component {
   }
 
   renderQuiz() {
-    // const timer = this.timerCount
-    // return timer() (
     return (
-      
       // Quizファイルで運んできたpropsをstateにしてApp.jsのconstructorで初期化して各メソッドで利用できるようにしている
       <Quiz
         answer={this.state.answer}
@@ -244,7 +248,7 @@ class App extends Component {
 
   renderResult() {
     // setResultsでstateにresultを追加された状態だった場合に、回答を出す
-    return <Result quizResult={this.state.result} />;
+    return <Result quizResult={this.state.result}/>;
   }
 
   renderMistake() {
@@ -270,17 +274,17 @@ class App extends Component {
 
   timerCount() {
     //DOM取得
-    // const timerText = document.querySelector('.timer-text');
-    const timerText = document.getElementById('root');
-
-    // const text = document.querySelector('.text');
+    const timerText = document.querySelector('.timer');
     
     //JSXに埋め込む値
-    const h2Text = "制限時間";
+    const text = "Time limit";
   
     //カウントの初期値
-    let counter = 20;
-  
+    // let counterTimer = 10;
+    let counterTimer = this.state.timerCount;
+
+    console.log(counterTimer)
+
     const timerCountDown =	() => {
       // quizQuestionsのオブジェクトの要素を取得
       const quizMistakeText = quizMistake.map(mistake =>
@@ -291,34 +295,61 @@ class App extends Component {
       );
         
       //カウントダウン
-      if(counter>0) { 
-        counter--
-      } else if (counter === 0) {
-        this.setState({ 
-          mistake: [],
-          mistakeText: quizMistakeText[2],
-          mistakeCount: quizMistakeCount[2]
-        });
-        return;
+      if(counterTimer > 0) { 
+
+        if (this.state.mistake) {
+          this.setState.timerCount = 44
+          console.log("ddddd")
+          clearTimeout(timerCountDown);
+          console.log(timerCountDown)
+          return;
+        }
+        counterTimer--
+        // console.log(counterTimer)
+
+
+      } else if (counterTimer === 0) {
+        // this.setState.timerCount = "game"
+        if (this.state.questionId === 1) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[1],
+            mistakeCount: quizMistakeCount[1]
+          });
+          return;
+        } else if (this.state.questionId === 2) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[2],
+            mistakeCount: quizMistakeCount[2]
+          });
+        } else if (this.state.questionId === 3) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[3],
+            mistakeCount: quizMistakeCount[3]
+          });
+        }
       };
   
       //JSXの中身
       const elm = (
-      <section className="h2_elem">
-        <h2>{ h2Text }</h2>
-        <p>「{ counter }秒…」</p>
+      <section className="timer-container">
+        <p>{ text }</p>
+        <p>「{ counterTimer }秒」</p>
       </section>
       );
 
-      //レンダリング
-      ReactDOM.render(elm, timerText);
+      if (!this.state.mistake) {
+        ReactDOM.render(elm, timerText);
+        console.log("fffff")
+      }
     };
   
     //タイマー処理
     // 第一引数に処理、第二引数が時間
     setInterval(timerCountDown, 1000);
   }
-
 
   render() {
     return (
@@ -330,8 +361,10 @@ class App extends Component {
             <span className="shadow"></span>
           </div>
           <h2>Lobbing Quiz</h2>
+          <div className='timer'></div>
         </div>
         {this.judgment()}
+        {/* <div className='timer'></div> */}
         {/* {this.timerCount()} */}
       </div>
     );
