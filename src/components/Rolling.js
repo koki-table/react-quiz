@@ -37,7 +37,7 @@ window.onload = function() {
 
   setTimeout(function() {
     document.getElementsByClassName('sec-loading')[0].classList.add('end')
-  }, 1800)
+  }, 2000)
 }
   return <div className="sec-loading">
       <div class="bound-animation--rolling"><span class="ball"></span><span class="shadow"></span></div>

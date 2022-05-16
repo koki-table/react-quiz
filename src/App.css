@@ -43,9 +43,9 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 64px;
+  top: 136px;
   right: 24%;
-  bottom: 64px;
+  bottom: 128px;
   z-index: 1;
 }
 
