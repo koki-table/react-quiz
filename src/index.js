@@ -7,9 +7,12 @@ import * as serviceWorker from './serviceWorker';
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // import Timer from './Timer';
+// import anime from 'animejs/lib/anime.es.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
 // ReactDOM.render(<Timer />, document.querySelector('.text'));
+
+
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

@@ -4,12 +4,14 @@ import quizMistake from './api/quizMistake';
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import Mistake from './components/Mistake';
+import Rolling from './components/Rolling';
 // eslint-disable-next-line no-unused-vars
 // import logo from './svg/logo.svg';
 import './App.css';
 // eslint-disable-next-line no-unused-vars
 import { element } from 'prop-types';
 import ReactDOM from 'react-dom'
+import { CSSTransitionGroup } from 'react-transition-group';
 
 class App extends Component {
   constructor(props) {
@@ -24,7 +26,7 @@ class App extends Component {
       answer: '',
       answersCount: {},
       result: '',
-      timerCount: 100,
+      timerCount: 80,
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -217,7 +219,7 @@ class App extends Component {
         mistakeText: quizMistakeText[10],
         mistakeCount: quizMistakeCount[10]
       });
-    }
+    } 
   }
 
   setResults(result) {
@@ -297,13 +299,13 @@ class App extends Component {
       //カウントダウン
       if(counterTimer > 0) { 
 
-        if (this.state.mistake) {
+        if (this.state.mistake || this.state.result) {
           // this.setState.timerCount = 44
           console.log("ddddd")
           clearTimeout(timerCountDown);
           console.log(timerCountDown)
           return;
-        }
+        } 
         counterTimer--
         // console.log(counterTimer)
 
@@ -323,17 +325,67 @@ class App extends Component {
             mistakeText: quizMistakeText[2],
             mistakeCount: quizMistakeCount[2]
           });
+          return;
         } else if (this.state.questionId === 3) {
           this.setState({ 
             mistake: [],
             mistakeText: quizMistakeText[3],
             mistakeCount: quizMistakeCount[3]
           });
+        } else if (this.state.questionId === 4) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[4],
+            mistakeCount: quizMistakeCount[4]
+          });
+        } else if (this.state.questionId === 5) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[5],
+            mistakeCount: quizMistakeCount[5]
+          });
+        } else if (this.state.questionId === 6) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[6],
+            mistakeCount: quizMistakeCount[6]
+          });
+        } else if (this.state.questionId === 7) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[7],
+            mistakeCount: quizMistakeCount[7]
+          });
+        } else if (this.state.questionId === 8) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[8],
+            mistakeCount: quizMistakeCount[8]
+          });
+        } else if (this.state.questionId === 9) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[9],
+            mistakeCount: quizMistakeCount[9]
+          });
+        } else if (this.state.questionId === 10) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[10],
+            mistakeCount: quizMistakeCount[10]
+          });
         }
       };
   
       //JSXの中身
       const elm = (
+      <CSSTransitionGroup
+      transitionName="fade"
+      transitionEnterTimeout={800}
+      transitionLeaveTimeout={500}
+      transitionAppear
+      transitionAppearTimeout={800}
+      >
       <section className="timer-container">
         <p className='timer-text'>{ text }</p>
         <div className="bound-animation">
@@ -341,6 +393,7 @@ class App extends Component {
             <span className="shadow"></span>
           </div>
       </section>
+      </CSSTransitionGroup>
       );
 
       if (!this.state.mistake) {
@@ -351,19 +404,23 @@ class App extends Component {
   
     //タイマー処理
     // 第一引数に処理、第二引数が時間
+    if (!this.state.mistake) {
     setInterval(timerCountDown, 1000);
+    }
   }
 
   render() {
     return (
       <div className="App">
         <div className="App-header">
+          <Rolling/>
+          
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
           {/* <div className="bound-container">
             <span className="ball"></span>
             <span className="shadow"></span>
           </div> */}
-          <h2>Lobbing Quiz</h2>
+          {/* <h2>Lobbing Quiz</h2> */}
           <div className='timer'></div>
         </div>
         {this.judgment()}
