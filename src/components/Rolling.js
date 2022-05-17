@@ -36,7 +36,7 @@ window.onload = function() {
   ) // ひとつ前のアニメーションが終わる200ミリ秒前に開始する
 
   setTimeout(function() {
-    document.getElementsByClassName('sec-loading')[0].classList.add('end')
+    document.getElementsByClassName('sec-loading')[0].classList.add('end') 
   }, 2000)
 }
   return <div className="sec-loading">

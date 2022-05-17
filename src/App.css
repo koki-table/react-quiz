@@ -35,8 +35,63 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 33px;
-  right: 24%;
+  top: 1%;
+  right: 20%;
+  bottom: 87%;
+}
+
+.timer-container--sub--01 {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timer-container--sub--01 .bound-animation {
+  width: 26%;
+  min-height: 20px;
+  position: absolute;
+  top: 90%;
+  right: 68%;
+  bottom: 87%;
+}
+
+.timer-container--sub--01 .bound-animation .ball {
+  background: #2C7873;
+}
+
+.timer-container--sub--02 {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timer-container--sub--02 .bound-animation {
+  width: 26%;
+  min-height: 20px;
+  position: absolute;
+  top: 48%;
+  right: 23%;
+  bottom: 87%;
+}
+
+.timer-container--sub--02 .bound-animation .ball {
+  background: #FFBB00;
+}
+
+.timer-container--sub--03 {
+  visibility: hidden;
+  opacity: 0;
+}
+
+.timer-container--sub--03 .bound-animation {
+  width: 26%;
+  min-height: 20px;
+  position: absolute;
+  top: 17%;
+  right: 1%;
+  bottom: 87%;
+}
+
+.timer-container--sub--03 .bound-animation .ball {
+  background: #FB6542;
 }
 
 .bound-animation--rolling {
@@ -44,7 +99,7 @@
   min-height: 20px;
   position: absolute;
   top: 136px;
-  right: 24%;
+  right: 20%;
   bottom: 128px;
   z-index: 1;
 }
@@ -152,6 +207,16 @@
 
 
 .timer-text {
-  font-size: 17px;
+  font-size: 23px;
   margin: 10px 0 10px;
+}
+
+.is-active {
+  visibility: visible;
+  opacity: 1;
+  -webkit-transition: ease-in-out 0.3s;
+  -moz-transition: ease-in-out 0.3s;
+  -ms-transition: ease-in-out 0.3s;
+  -o-transition: ease-in-out 0.3s;
+  transition: ease-in-out 0.3s;
 }

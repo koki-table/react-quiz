@@ -295,6 +295,10 @@ class App extends Component {
       const quizMistakeCount = quizMistake.map(mistake =>
         mistake.count
       );
+
+      const timerBall = document.getElementById('timer-container--sub--01');
+
+      console.log(timerBall)
         
       //カウントダウン
       if(counterTimer > 0) { 
@@ -309,8 +313,18 @@ class App extends Component {
         counterTimer--
         // console.log(counterTimer)
 
+        
 
-      } else if (counterTimer === 0) {
+
+        } else if (counterTimer === 75) {
+          timerBall.classList.add('is-active') 
+          console.log("fffffffffffff")
+          return
+        } else if (counterTimer === 70) {
+          document.getElementsByClassName('timer-container--sub--02')[0].classList.add('is-active') 
+        } else if (counterTimer === 70) {
+          document.getElementsByClassName('timer-container--sub--03')[0].classList.add('is-active') 
+        } else if (counterTimer === 0) {
         // this.setState.timerCount = "game"
         if (this.state.questionId === 1) {
           this.setState({ 
@@ -413,19 +427,16 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <Rolling/>
-          
+          <Rolling/>      
           {/* <img src={logo} className="App-logo" alt="logo" /> */}
-          {/* <div className="bound-container">
-            <span className="ball"></span>
-            <span className="shadow"></span>
-          </div> */}
-          {/* <h2>Lobbing Quiz</h2> */}
           <div className='timer'></div>
         </div>
         {this.judgment()}
         {/* <div className='timer'></div> */}
         {/* {this.timerCount()} */}
+        <section id='timer-container--sub--01' class="timer-container--sub--01"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
+        <section class="timer-container--sub--02"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
+        <section class="timer-container--sub--03"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
       </div>
     );
   }

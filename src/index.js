@@ -6,11 +6,8 @@ import * as serviceWorker from './serviceWorker';
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// import Timer from './Timer';
-// import anime from 'animejs/lib/anime.es.js'
 
 ReactDOM.render(<App />, document.getElementById('root'));
-// ReactDOM.render(<Timer />, document.querySelector('.text'));
 
 
 
