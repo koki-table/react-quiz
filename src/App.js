@@ -42,15 +42,11 @@ class App extends Component {
       answerOptions: shuffledAnswerOptions[0],
     });
 
-    // this.timerID = setInterval(
-    //   () => this.timerCount(),
-    // );
-
-    this.timerCount();
+    this.timerCounter();
   }
 
   componentWillUnmount() {
-    clearInterval(this.timerCount());
+    clearInterval(this.timerCounter());
   }
 
   shuffleArray(array) {
@@ -109,7 +105,7 @@ class App extends Component {
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
-    clearTimeout(this.timerCount);
+    clearTimeout(this.timerCounter);
 
     this.setState({
       counter: counter,
@@ -152,7 +148,8 @@ class App extends Component {
       mistake.count
     );
 
-
+    this.setState({timerCount: 0})
+    
 
     console.log(quizMistakeText[0])
 
@@ -169,7 +166,7 @@ class App extends Component {
       this.setState({ 
         mistake: [],
         mistakeText: quizMistakeText[2],
-        mistakeCount: quizMistakeCount[2]
+        mistakeCount: quizMistakeCount[2],
       });
     } else if (this.state.questionId === 3) {
       this.setState({ 
@@ -274,7 +271,7 @@ class App extends Component {
     }
   };
 
-  timerCount() {
+  timerCounter() {
     //DOM取得
     const timerText = document.querySelector('.timer');
     
@@ -295,37 +292,27 @@ class App extends Component {
       const quizMistakeCount = quizMistake.map(mistake =>
         mistake.count
       );
-
-      const timerBall = document.getElementById('timer-container--sub--01');
-
-      console.log(timerBall)
         
       //カウントダウン
       if(counterTimer > 0) { 
-
-        if (this.state.mistake || this.state.result) {
-          // this.setState.timerCount = 44
-          console.log("ddddd")
-          clearTimeout(timerCountDown);
-          console.log(timerCountDown)
-          return;
-        } 
         counterTimer--
-        // console.log(counterTimer)
 
-        
-
-
-        } else if (counterTimer === 75) {
-          timerBall.classList.add('is-active') 
-          console.log("fffffffffffff")
-          return
-        } else if (counterTimer === 70) {
+        if (counterTimer === 65) {
+          document.getElementsByClassName('timer-container--sub--01')[0].classList.add('is-active') 
+        } else if (counterTimer === 40) {
           document.getElementsByClassName('timer-container--sub--02')[0].classList.add('is-active') 
-        } else if (counterTimer === 70) {
+        } else if (counterTimer === 15) {
           document.getElementsByClassName('timer-container--sub--03')[0].classList.add('is-active') 
-        } else if (counterTimer === 0) {
-        // this.setState.timerCount = "game"
+        } 
+        // else if (this.state.mistake || this.state.result) {
+        //   // this.setState.timerCount = 44
+        //   console.log("ddddd")
+        //   clearTimeout(timerCountDown);
+        //   console.log(timerCountDown);
+        //   // return;
+        // } 
+
+      } else if (counterTimer === 0) {
         if (this.state.questionId === 1) {
           this.setState({ 
             mistake: [],

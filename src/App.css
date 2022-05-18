@@ -49,9 +49,9 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 90%;
+  top: 86%;
   right: 68%;
-  bottom: 87%;
+  bottom: 0%;
 }
 
 .timer-container--sub--01 .bound-animation .ball {
@@ -67,9 +67,15 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 48%;
+  top: 43%;
   right: 23%;
-  bottom: 87%;
+  bottom: 42%;
+  width: 26%;
+  min-height: 20px;
+  position: absolute;
+  top: 54%;
+  right: 23%;
+  bottom: 35%;
 }
 
 .timer-container--sub--02 .bound-animation .ball {
@@ -85,9 +91,9 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 17%;
+  top: 14%;
   right: 1%;
-  bottom: 87%;
+  bottom: 67%;
 }
 
 .timer-container--sub--03 .bound-animation .ball {
