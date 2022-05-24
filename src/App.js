@@ -312,6 +312,10 @@ class App extends Component {
         //   // return;
         // } 
 
+        if(this.state.result) {
+          return;
+        }
+
       } else if (counterTimer === 0) {
         if (this.state.questionId === 1) {
           this.setState({ 
