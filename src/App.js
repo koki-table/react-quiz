@@ -13,6 +13,7 @@ import { element } from 'prop-types';
 import ReactDOM from 'react-dom'
 import { CSSTransitionGroup } from 'react-transition-group';
 import lastImage from "./images/pages/index/last.jpg"; 
+import YouTube from 'react-youtube';
 
 
 class App extends Component {
@@ -28,7 +29,7 @@ class App extends Component {
       answer: '',
       answersCount: {},
       result: '',
-      timerCount: 80,
+      timerCount: 100,
       value: '',
     };
 
@@ -428,6 +429,7 @@ class App extends Component {
             mistakeCount: quizMistakeCount[11]
           });
         } else if (this.state.questionId === 12) {
+          document.getElementsByClassName('last-question')[0].classList.remove('is-active--01') 
           this.setState({ 
             mistake: [],
             mistakeText: quizMistakeText[12],
@@ -497,12 +499,16 @@ class App extends Component {
         <section id='timer-container--sub--01' class="timer-container--sub--01"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
         <section class="timer-container--sub--02"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
         <section class="timer-container--sub--03"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
+        {/* last-questionエリア */}
         <form className='last-question' onSubmit={this.handleSubmit}>
+          <p className='last-question__sub-text'>※『ひらがな』で苗字を入力して『Final Answer』をクリック</p>
+          <div className='video'>
+            <YouTube videoId="fNaeF4Y9p7w" />
+          </div>
           <label className='last-question__answer'>
             <input type="text" value={this.state.value} onChange={this.handleChange}/>
           </label>
-          
-            <p className='last-question__text is-active'>もう無理だ、、ギブアップの<br/>そこのあなた『あきらめる』と<br/>ひらがなで入力して『Final Answer』をクリック</p>
+            <p className='last-question__text is-active'>もう無理だ、、ギブアップの<br/>そこのあなた『あきらめる』と<br/>入力して『Final Answer』をクリック</p>
             <div className='last-question__img'>
               <img src={lastImage} alt="あきらめるな"></img>
             </div>

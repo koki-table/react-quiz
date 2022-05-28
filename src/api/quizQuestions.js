@@ -1,237 +1,237 @@
 var quizQuestions = [
     {
-        question: "1問目",
+        question: "込められた意味は、ドイツ語で勝利者、これなんのラバー？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "ザルト"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "ファクティブ"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "ラティカ"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "ズィーガーPK50"
             }
         ]
     },
     {
-        question: "2問目",
+        question: "スティガのラケット、オールラウンドエボリューションとクリッパーシリーズのグリップ形状は何種類？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "4"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "8"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "10"
             },
             {
-                type: "回答記載",
-                content: "せいかい"
+                type: "result",
+                content: "6"
             }
         ]
     },
     {
-        question: "3問目",
+        question: "Tリーグ2021シーズン男子の優勝チームは？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "琉球アスティーダ"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "T.T彩たま"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "岡山リベッツ"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "木下マイスター東京"
             }
         ]
     },
     {
-        question: "4問目",
+        question: "卓球用語で、ペンパチこれどんな戦型？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "シェークハンド\n両面裏ソフトラバー使用"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "シェークハンド\n両面表ソフトラバー使用"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "ペンホルダー\n片面裏ソフトラバー使用"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "ペンホルダー\n片面表ソフトラバー使用"
             }
         ]
     },
     {
-        question: "5問目",
+        question: "関西社会人卓球サラリーマン御用達の羽曳野レイティングで採用されている。独自のルールといえば？？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "エッジで入っても、得点にはならない"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "YGサーブを出すと相手に怒られる"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "大会に遅刻するとレートが下がる"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "ネットインサーブ有効"
             }
         ]
     },
     {
-        question: "6問目",
+        question: "東京オリンピックミックスダブルスチャンピオンで、最近テレビ番組に引っ張りだこなのは？水谷",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "準"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "凖"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "美誠"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "隼"
             }
         ]
     },
     {
-        question: "7問目",
+        question: "日本ペイントマレッツのマスコットキャラマレットちゃん！背番号は？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "1111"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "2557"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "背番号なし"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "1881"
             }
         ]
     },
     {
-        question: "8問目",
+        question: "今何問目？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "7"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "9"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "10"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "8"
             }
         ]
     },
     {
-        question: "9問目",
+        question: "卓球メーカーJoola本社はどこの国？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "フランス"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "日本"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "ナイジェリア"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "ドイツ"
             }
         ]
     },
     {
-        question: "10問目",
+        question: "カルデラ？？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "ロ"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "オ"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "ホ"
             },
             {
-                type: "Sony",
-                content: "せいかい"
+                type: "result",
+                content: "ノ"
             }
         ]
     },
     {
-        question: "11問目",
+        question: "現在の卓球では使用禁止となっているTSPのアンチ粒高ラバーの代表といえば？",
         answers: [
             {
                 type: "mistake1",
-                content: "だみーーーーみす1"
+                content: "ハイパーカール"
             },
             {
                 type: "mistake2",
-                content: "だみーーーーみす2"
+                content: "カールおじさん"
             },
             {
                 type: "mistake3",
-                content: "だみーーーーみす3"
+                content: "パンクブーブー"
             },
             {
-                type: "回答記載",
-                content: "せいかい"
+                type: "こちらに回答入力",
+                content: "バンブーカール"
             }
         ]
     },
     {
-        question: "12問目",
+        question: "これはだれ？？",
         answers: [
             // {
             //     type: "mistake1",
@@ -246,7 +246,7 @@ var quizQuestions = [
             //     content: "だみーーーーみす3"
             // },
             // {
-            //     type: "Sony",
+            //     type: "result",
             //     content: "せいかい"
             // }
         ]
