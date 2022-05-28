@@ -36,7 +36,7 @@ var quizQuestions = [
                 content: "だみーーーーみす3"
             },
             {
-                type: "Sony",
+                type: "回答記載",
                 content: "せいかい"
             }
         ]
@@ -207,6 +207,48 @@ var quizQuestions = [
                 type: "Sony",
                 content: "せいかい"
             }
+        ]
+    },
+    {
+        question: "11問目",
+        answers: [
+            {
+                type: "mistake1",
+                content: "だみーーーーみす1"
+            },
+            {
+                type: "mistake2",
+                content: "だみーーーーみす2"
+            },
+            {
+                type: "mistake3",
+                content: "だみーーーーみす3"
+            },
+            {
+                type: "回答記載",
+                content: "せいかい"
+            }
+        ]
+    },
+    {
+        question: "12問目",
+        answers: [
+            // {
+            //     type: "mistake1",
+            //     content: "だみーーーーみす1"
+            // },
+            // {
+            //     type: "mistake2",
+            //     content: "だみーーーーみす2"
+            // },
+            // {
+            //     type: "mistake3",
+            //     content: "だみーーーーみす3"
+            // },
+            // {
+            //     type: "Sony",
+            //     content: "せいかい"
+            // }
         ]
     },
 ];

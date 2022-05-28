@@ -34,7 +34,7 @@ function Result(props) {
           <div className="appeal__text">『リツイートとフォローもしてくれたら嬉しいです!!』</div>
           
           <div className="appeal__link appeal__link--return">
-            <a href="http://localhost:3000/">もう1度チャレンジする</a>
+            <a href="https://lobbing-quiz-17b48.web.app/">もう1度チャレンジする</a>
           </div>
         </div>
     </div>

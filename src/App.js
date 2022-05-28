@@ -12,6 +12,8 @@ import './App.css';
 import { element } from 'prop-types';
 import ReactDOM from 'react-dom'
 import { CSSTransitionGroup } from 'react-transition-group';
+import lastImage from "./images/pages/index/last.jpg"; 
+
 
 class App extends Component {
   constructor(props) {
@@ -27,9 +29,12 @@ class App extends Component {
       answersCount: {},
       result: '',
       timerCount: 80,
+      value: '',
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -48,6 +53,33 @@ class App extends Component {
   componentWillUnmount() {
     clearInterval(this.timerCounter());
   }
+
+  // ラストの問題のみテキスト入力の判別
+  handleChange(event) {
+    this.setState({value: event.target.value});
+  }
+
+  handleSubmit(event) {
+    // let counterTimer = this.state.timerCount;
+    if (this.state.value === 'いくの') {
+      // alert('An essay was submitted: ' + this.state.value);
+      // alert('ここまで遊んでくれて、ありがとうございます！！！');
+      setTimeout(() => this.setResults(this.getResults()), 300);
+      document.getElementsByClassName('last-question')[0].classList.remove('is-active--01') 
+      event.preventDefault();
+    } else if (this.state.value === 'あきらめる') {
+      // alert('ほんとありがとう！！');
+      document.getElementsByClassName('last-question__text')[0].classList.remove('is-active') 
+      document.getElementsByClassName('last-question__img')[0].classList.add('is-active') 
+      event.preventDefault();
+      // return false; 
+    } else {
+      alert('不正解、、カウント０になるまでチャレンジ可能です');
+      event.preventDefault();
+      // return false; 
+    }
+  }
+  ///////////////////////////////////
 
   shuffleArray(array) {
     var currentIndex = array.length,
@@ -74,6 +106,8 @@ class App extends Component {
     // 下記でクリックイベントでクリックした値を取得
     this.setUserAnswer(event.currentTarget.value);
 
+    this.setState({value: event.target.value});
+
 
     console.log(event.currentTarget.value);
 
@@ -86,9 +120,9 @@ class App extends Component {
     } else if (event.currentTarget.value === 'mistake3') {
       setTimeout(() => this.setMistake(), 300);
     } else if (this.state.questionId < quizQuestions.length) {
-      setTimeout(() => this.setNextQuestion(), 300);
+      setTimeout(() => this.setNextQuestion(this.lastQuestion()), 300);
     } else {
-      setTimeout(() => this.setResults(this.getResults()), 300);
+      setTimeout(() => this.setResults(this.getResults(this.lastQuestion)), 300);
     }
   }
 
@@ -157,10 +191,10 @@ class App extends Component {
     // 助長感は否めないけど、まずはそれでやってみる
     if (this.state.questionId === 1) {
       this.setState({ 
-        result: [],
-        // mistake: [],
-        // mistakeText: quizMistakeText[1],
-        // mistakeCount: quizMistakeCount[1]
+        // result: [],
+        mistake: [],
+        mistakeText: quizMistakeText[1],
+        mistakeCount: quizMistakeCount[1]
       });
     } else if (this.state.questionId === 2) {
       this.setState({ 
@@ -216,6 +250,18 @@ class App extends Component {
         mistakeText: quizMistakeText[10],
         mistakeCount: quizMistakeCount[10]
       });
+    } else if (this.state.questionId === 11) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[11],
+        mistakeCount: quizMistakeCount[11]
+      });
+    } else if (this.state.questionId === 12) {
+      this.setState({ 
+        mistake: [],
+        mistakeText: quizMistakeText[12],
+        mistakeCount: quizMistakeCount[12]
+      });
     } 
   }
 
@@ -247,6 +293,7 @@ class App extends Component {
 
   renderResult() {
     // setResultsでstateにresultを追加された状態だった場合に、回答を出す
+    clearInterval(this.timerCounter.timerCountDown)
     return <Result quizResult={this.state.result}/>;
   }
 
@@ -295,7 +342,9 @@ class App extends Component {
         
       //カウントダウン
       if(counterTimer > 0) { 
-        counterTimer--
+        if(!this.state.result || !this.state.mistake) {
+          counterTimer--
+        }
 
         if (counterTimer === 65) {
           document.getElementsByClassName('timer-container--sub--01')[0].classList.add('is-active') 
@@ -304,16 +353,9 @@ class App extends Component {
         } else if (counterTimer === 15) {
           document.getElementsByClassName('timer-container--sub--03')[0].classList.add('is-active') 
         } 
-        // else if (this.state.mistake || this.state.result) {
-        //   // this.setState.timerCount = 44
-        //   console.log("ddddd")
-        //   clearTimeout(timerCountDown);
-        //   console.log(timerCountDown);
-        //   // return;
-        // } 
 
         if(this.state.result) {
-          return;
+          counterTimer++
         }
 
       } else if (counterTimer === 0) {
@@ -379,6 +421,18 @@ class App extends Component {
             mistakeText: quizMistakeText[10],
             mistakeCount: quizMistakeCount[10]
           });
+        } else if (this.state.questionId === 11) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[11],
+            mistakeCount: quizMistakeCount[11]
+          });
+        } else if (this.state.questionId === 12) {
+          this.setState({ 
+            mistake: [],
+            mistakeText: quizMistakeText[12],
+            mistakeCount: quizMistakeCount[12]
+          });
         }
       };
   
@@ -406,12 +460,27 @@ class App extends Component {
         console.log("fffff")
       }
     };
+
+    // if (this.state.result) {
+    //   clearInterval(timerCountDown);
+    // }
+
+    // if (this.state.mistake) {
+    //   clearInterval(timerCountDown);
+    // }
   
+    // return () => clearInterval(timerCountDown)
     //タイマー処理
     // 第一引数に処理、第二引数が時間
     if (!this.state.mistake) {
     setInterval(timerCountDown, 1000);
     }
+  }
+
+  lastQuestion() {
+    if (this.state.questionId === 11) {
+      document.getElementsByClassName('last-question')[0].classList.add('is-active--01') 
+    } 
   }
 
   render() {
@@ -428,6 +497,17 @@ class App extends Component {
         <section id='timer-container--sub--01' class="timer-container--sub--01"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
         <section class="timer-container--sub--02"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
         <section class="timer-container--sub--03"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
+        <form className='last-question' onSubmit={this.handleSubmit}>
+          <label className='last-question__answer'>
+            <input type="text" value={this.state.value} onChange={this.handleChange}/>
+          </label>
+          
+            <p className='last-question__text is-active'>もう無理だ、、ギブアップの<br/>そこのあなた『あきらめる』と<br/>ひらがなで入力して『Final Answer』をクリック</p>
+            <div className='last-question__img'>
+              <img src={lastImage} alt="あきらめるな"></img>
+            </div>
+          <input className='last-question__link' type="submit" value="Final Answer"/>
+        </form>
       </div>
     );
   }
