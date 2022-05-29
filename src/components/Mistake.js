@@ -16,8 +16,9 @@ function Mistake(props) {
       transitionAppearTimeout={500}
     >
       <div className="mistake__heading">
-        <p>Bad luck!
-          <br/><span className="animateion--neon">{props.quizMistakeCount}</span> stage <span className="text-logo--racket">🏓</span>
+        <p>
+          <span className="sub-text">残念ながら、はずれです。</span>
+          <br/><span className="animateion--neon">{props.quizMistakeCount}</span> 脱落 <span className="text-logo--racket">🏓</span>
           <br/>
         </p>
       </div>

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { CSSTransitionGroup } from 'react-transition-group';
 import twitterImage from "../images/pages/index/return_btn_tw.png"; 
+import resultImage from "../images/pages/index/result.jpg"; 
 
 
 function Result(props) {
@@ -16,15 +17,18 @@ function Result(props) {
     transitionAppearTimeout={500}
   >
     <div className="result__heading">
-      <p>Winning <br/><span className="animateion--neon">The</span> Game
+      <p>全問正解。<br/>あなたは完璧な<span className="animateion--neon"><br/>雑学王</span>です。
         <span className="text-logo--racket">🏓</span>
         <br/>
       </p>
     </div>
     <div className="result__body">
-      <p className="text">
+      {/* <p className="text">
         <p className='text'>さんきゅーさんきゅーさんきゅーさんきゅーさんきゅーさんきゅーさんきゅーさんきゅーさんきゅー</p>
-      </p>
+      </p> */}
+      <div className='img'>
+        <img src={resultImage} alt=""></img>
+      </div>
       <div className="appeal" data-appeal>
           <div className="appeal__link" data-appeal-last>
             <a href="https://twitter.com/Lobbing_?ref_src=twsrc%5Etfw">

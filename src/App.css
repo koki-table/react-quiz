@@ -56,6 +56,12 @@
 
 .timer-container--sub--01 .bound-animation .ball {
   background: #2C7873;
+  opacity: 0.7;
+  color: #fff;
+  font-size: 8px;
+  text-align: center;
+  align-items: center;
+  display: inline-grid;
 }
 
 .timer-container--sub--02 {
@@ -67,19 +73,22 @@
   width: 26%;
   min-height: 20px;
   position: absolute;
-  top: 43%;
-  right: 23%;
-  bottom: 42%;
   width: 26%;
   min-height: 20px;
   position: absolute;
   top: 54%;
-  right: 23%;
+  right: 7%;
   bottom: 35%;
 }
 
 .timer-container--sub--02 .bound-animation .ball {
   background: #FFBB00;
+  opacity: 0.7;
+  color: #fff;
+  font-size: 8px;
+  text-align: center;
+  align-items: center;
+  display: inline-grid;
 }
 
 .timer-container--sub--03 {
@@ -98,6 +107,12 @@
 
 .timer-container--sub--03 .bound-animation .ball {
   background: #FB6542;
+  opacity: 0.7;
+  color: #fff;
+  font-size: 8px;
+  text-align: center;
+  align-items: center;
+  display: inline-grid;
 }
 
 .bound-animation--rolling {
@@ -247,6 +262,10 @@
 .last-question__img img{
   width: 100%;
   height: auto;
+}
+
+.last-question__img .none{
+  display: none;
 }
 
 .last-question__text {

@@ -225,7 +225,7 @@ var quizQuestions = [
                 content: "パンクブーブー"
             },
             {
-                type: "こちらに回答入力",
+                type: "さんぷる",
                 content: "バンブーカール"
             }
         ]

@@ -62,7 +62,7 @@ body {
 .container.result {
   background-color: #000;
   color: #fff;
-  height: calc(100vh - 85px);
+  height: calc(100vh + 30px);
 }
 
 .result {
@@ -71,7 +71,7 @@ body {
 }
 
 .result__heading p {
-  font-size: 47px;
+  font-size: 36px;
   line-height: 1.15;
   letter-spacing: -0.05em;
   font-weight: 700;
@@ -88,14 +88,18 @@ body {
   color: #8a8f98;
 }
 
+.result__body .img img{
+  width: 100%;
+  height: auto;
+}
+
 .result .animateion--neon {
-  font-family: Yellowtail, cursive;
+  /* font-family: Yellowtail, cursive; */
   -webkit-animation: utils_flicker__w6vFc 1.5s infinite alternate;
   animation: utils_flicker__w6vFc 1.5s infinite alternate;
   color: #fff;
   font-weight: 400;
   line-height: 1;
-  font-family: Yellowtail, cursive;
   letter-spacing: 0.05em;
 }
 
@@ -212,7 +216,7 @@ body {
 .container.mistake {
   background-color: #000;
   color: #fff;
-  height: calc(100vh - 85px);
+  height: calc(100vh);
 }
 
 .mistake {
@@ -228,12 +232,19 @@ body {
   margin: 0 0 25px;
 }
 
+.mistake__heading p .sub-text {
+  font-size: 27px;
+  display: inline-block;
+  margin: 0 0 16px;
+}
+
 .mistake__body {
   font-size: 18px;
 }
 
 .mistake__body .text{
   color: #8a8f98;
+  margin-top: 5vh;
 }
 
 .text-logo--racket {
@@ -241,13 +252,12 @@ body {
 }
 
 .mistake .animateion--neon {
-  font-family: Yellowtail, cursive;
+  /* font-family: Yellowtail, cursive; */
   -webkit-animation: utils_flicker__w6vFc 1.5s infinite alternate;
   animation: utils_flicker__w6vFc 1.5s infinite alternate;
   color: #fff;
   font-weight: 400;
   line-height: 1;
-  font-family: Yellowtail, cursive;
   letter-spacing: 0.05em;
 }
 
@@ -279,7 +289,7 @@ body {
 }
 
 .appeal {
-  margin: 60px 15px 0 15px;
+  margin: 50px 15px 0 15px;
   text-align: center;
 }
 

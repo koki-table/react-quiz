@@ -12,7 +12,8 @@ import './App.css';
 import { element } from 'prop-types';
 import ReactDOM from 'react-dom'
 import { CSSTransitionGroup } from 'react-transition-group';
-import lastImage from "./images/pages/index/last.jpg"; 
+import lastImage from "./images/pages/index/last.jpg";
+import mvImage from "./images/pages/index/mv_quiz_fix.jpg";
 import YouTube from 'react-youtube';
 
 
@@ -29,8 +30,9 @@ class App extends Component {
       answer: '',
       answersCount: {},
       result: '',
-      timerCount: 100,
+      timerCount: 90,
       value: '',
+      lastValue: ''
     };
 
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -57,18 +59,18 @@ class App extends Component {
 
   // ラストの問題のみテキスト入力の判別
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({lastValue: event.target.value});
   }
 
   handleSubmit(event) {
     // let counterTimer = this.state.timerCount;
-    if (this.state.value === 'いくの') {
-      // alert('An essay was submitted: ' + this.state.value);
+    if (this.state.lastValue === 'いくの') {
+      // alert('An essay was submitted: ' + this.state.lastValue);
       // alert('ここまで遊んでくれて、ありがとうございます！！！');
       setTimeout(() => this.setResults(this.getResults()), 300);
       document.getElementsByClassName('last-question')[0].classList.remove('is-active--01') 
       event.preventDefault();
-    } else if (this.state.value === 'あきらめる') {
+    } else if (this.state.lastValue === 'あきらめる') {
       // alert('ほんとありがとう！！');
       document.getElementsByClassName('last-question__text')[0].classList.remove('is-active') 
       document.getElementsByClassName('last-question__img')[0].classList.add('is-active') 
@@ -496,21 +498,23 @@ class App extends Component {
         {this.judgment()}
         {/* <div className='timer'></div> */}
         {/* {this.timerCount()} */}
-        <section id='timer-container--sub--01' class="timer-container--sub--01"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
-        <section class="timer-container--sub--02"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
-        <section class="timer-container--sub--03"><div class="bound-animation"><span class="ball"></span><span class="shadow"></span></div></section>
+        <section id='timer-container--sub--01' class="timer-container--sub--01"><div class="bound-animation"><span class="ball">い</span><span class="shadow"></span></div></section>
+        <section class="timer-container--sub--02"><div class="bound-animation"><span class="ball">く</span><span class="shadow"></span></div></section>
+        <section class="timer-container--sub--03"><div class="bound-animation"><span class="ball">の</span><span class="shadow"></span></div></section>
         {/* last-questionエリア */}
         <form className='last-question' onSubmit={this.handleSubmit}>
-          <p className='last-question__sub-text'>※『ひらがな』で苗字を入力して『Final Answer』をクリック</p>
+          <p className='last-question__sub-text'>※下記の動画は音声のみです
+          <br/>※『ひらがな』で苗字を入力して『Final Answer』をクリック</p>
           <div className='video'>
             <YouTube videoId="fNaeF4Y9p7w" />
           </div>
           <label className='last-question__answer'>
-            <input type="text" value={this.state.value} onChange={this.handleChange}/>
+            <input type="text" placeholder="こちらに回答入力" value={this.state.lastValue} onChange={this.handleChange}/>
           </label>
             <p className='last-question__text is-active'>もう無理だ、、ギブアップの<br/>そこのあなた『あきらめる』と<br/>入力して『Final Answer』をクリック</p>
             <div className='last-question__img'>
               <img src={lastImage} alt="あきらめるな"></img>
+              <img className='none' src={mvImage} alt="mv"></img>
             </div>
           <input className='last-question__link' type="submit" value="Final Answer"/>
         </form>
