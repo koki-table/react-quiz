@@ -62,7 +62,7 @@ body {
 .container.result {
   background-color: #000;
   color: #fff;
-  height: calc(100vh + 30px);
+  height: calc(100vh + 275px);
 }
 
 .result {
