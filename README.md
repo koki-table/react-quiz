@@ -4,7 +4,7 @@
 
 クイズを出題し、インタラクティブに回答を進めることができる簡単なReactアプリケーションです。
 
-デモは[こちら]((https://lobbing-quiz-17b48.firebaseapp.com/))
+デモは[こちら](https://lobbing-quiz-17b48.firebaseapp.com/)
 
 ## インストール・ビルド・開発
 
