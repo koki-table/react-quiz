@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function QuestionCount(props) {
+function Progress(props) {
   return (
     <div className="questionCount">
       Question <span>{props.counter}</span> of <span>{props.total}</span>
@@ -9,9 +9,9 @@ function QuestionCount(props) {
   );
 }
 
-QuestionCount.propTypes = {
+Progress.propTypes = {
   counter: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired
 };
 
-export default QuestionCount;
+export default Progress;

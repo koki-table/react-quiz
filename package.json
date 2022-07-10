@@ -12,6 +12,7 @@
     "react-snap": "^1.23.0",
     "react-transition-group": "^1.2.1",
     "react-youtube": "^9.0.2",
+    "recoil": "^0.7.4",
     "video-react": "^0.15.0"
   },
   "scripts": {

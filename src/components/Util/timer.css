@@ -1,0 +1,61 @@
+
+.timer-container--sub--01 {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .timer-container--sub--01 .bound-animation {
+    width: 26%;
+    min-height: 20px;
+    position: absolute;
+    top: 86%;
+    right: 68%;
+    bottom: 0%;
+  }
+  
+  .timer-container--sub--01 .bound-animation .ball {
+    background: #2C7873;
+  }
+  
+  .timer-container--sub--02 {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .timer-container--sub--02 .bound-animation {
+    width: 26%;
+    min-height: 20px;
+    position: absolute;
+    top: 43%;
+    right: 23%;
+    bottom: 42%;
+    width: 26%;
+    min-height: 20px;
+    position: absolute;
+    top: 54%;
+    right: 23%;
+    bottom: 35%;
+  }
+  
+  .timer-container--sub--02 .bound-animation .ball {
+    background: #FFBB00;
+  }
+  
+  .timer-container--sub--03 {
+    visibility: hidden;
+    opacity: 0;
+  }
+  
+  .timer-container--sub--03 .bound-animation {
+    width: 26%;
+    min-height: 20px;
+    position: absolute;
+    top: 14%;
+    right: 1%;
+    bottom: 67%;
+  }
+  
+  .timer-container--sub--03 .bound-animation .ball {
+    background: #FB6542;
+  }
+  
